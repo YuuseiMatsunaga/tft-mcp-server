@@ -11,7 +11,11 @@ import {
 import yargs from "yargs";
 import { hideBin } from "yargs/helpers";
 import { TFT_TOOLS } from "./tools/index.js";
-import { handleTftMatchDetails, handleTftMatchHistory } from "./tools/match.js";
+import {
+  handleTftMatchDetails,
+  handleTftMatchHistory,
+  handleTftRankedStats
+} from "./tools/match.js";
 import { setArgs } from "./types.js";
 import { initializePUUID } from "./utils.js";
 
@@ -70,6 +74,9 @@ server.setRequestHandler(CallToolRequestSchema, async (request) => {
     switch (request.params.name) {
       case "tft_match_history": {
         return await handleTftMatchHistory(request.params.arguments);
+      }
+      case "tft_ranked_stats": {
+        return await handleTftRankedStats(request.params.arguments);
       }
       case "tft_match_details": {
         return await handleTftMatchDetails(request.params.arguments);

@@ -22,6 +22,22 @@ export const TFT_TOOLS: Tool[] = [
     }
   },
   {
+    name: "tft_ranked_stats",
+    description:
+      "Get ranked TFT stats (average placement, top 4 rate, win rate) from recent matches",
+    inputSchema: {
+      type: "object",
+      properties: {
+        count: {
+          type: "number",
+          default: 20,
+          description:
+            "Number of recent matches to analyze for ranked stats (default: 20)"
+        }
+      }
+    }
+  },
+  {
     name: "tft_match_details",
     description: "Get detailed information about a specific TFT match",
     inputSchema: {
